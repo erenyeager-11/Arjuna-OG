@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arjuna GC Hub</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+
+    body{
+      height:100vh;overflow:hidden;
+      background:linear-gradient(135deg,#1c1b18,#2a261f,#f5efe6);
+      animation:bgMove 16s ease-in-out infinite alternate;
+      color:#f5efe6;
+    }
+
+    @keyframes bgMove{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+
+    /* snowfall */
+    .snow{position:absolute;top:-10px;color:#fff;opacity:.7;animation:fall linear infinite}
+    @keyframes fall{to{transform:translateY(110vh)}}
+
+    .page{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column}
+    .page.active{display:flex}
+
+    /* ORBIT */
+    .orbit{position:relative;width:400px;height:400px;display:flex;align-items:center;justify-content:center}
+
+    /* LOGO */
+    .logo{width:130px;height:130px;border-radius:50%;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 50px rgba(245,239,230,.4);z-index:5}
+    .logo img{width:100%;height:100%;object-fit:cover}
+
+    /* BASE BUTTON */
+    .orbit a{position:absolute;padding:10px 14px;border-radius:14px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);text-decoration:none;color:#f5efe6;font-size:13px;white-space:nowrap;transition:.35s}
+    .orbit a:hover{transform:scale(1.08);background:rgba(245,239,230,.18)}
+
+    /* MAIN GC (TOP, UNIQUE) */
+    .main-og{top:-28px;left:50%;transform:translateX(-50%);font-size:15px;padding:16px 26px;background:linear-gradient(135deg,#f5efe6,#cfc7b8);color:#1c1b18;font-weight:600;box-shadow:0 0 30px rgba(245,239,230,.6)}
+
+    /* LEFT SIDE (YPT + REGAIN) */
+    .l1{top:18%;left:-35px}
+    .l2{top:38%;left:-55px}
+    .l3{top:58%;left:-55px}
+    .l4{top:78%;left:-35px}
+
+    /* RIGHT SIDE (QUIZZER + MATERIAL) */
+    .r1{top:28%;right:-35px}
+    .r2{top:50%;right:-55px}
+    .r3{top:72%;right:-35px}
+
+    /* DISCORD BOTTOM */
+    .bottom{bottom:-30px;left:50%;transform:translateX(-50%);background:rgba(88,101,242,.6)}
+
+    /* NAV */
+    .nav{position:fixed;padding:12px 18px;border:none;border-radius:12px;background:rgba(0,0,0,.6);color:#f5efe6;cursor:pointer}
+    .next{bottom:20px;right:20px}
+    .back{bottom:20px;left:20px}
+
+    .about{max-width:520px;text-align:center;line-height:1.6;font-size:16px;padding:22px;background:rgba(0,0,0,.45);border-radius:18px}
+    .credit{position:fixed;bottom:18px;right:20px;opacity:.6;font-size:12px}
+
+    @media(max-width:480px){.orbit{width:300px;height:300px}.logo{width:110px;height:110px}.orbit a{font-size:12px}}
+  </style>
+</head>
+<body>
+
+  <!-- snowflakes -->
+  <script>
+    for(let i=0;i<40;i++){
+      let s=document.createElement('div');
+      s.className='snow';
+      s.innerHTML='❄';
+      s.style.left=Math.random()*100+'vw';
+      s.style.animationDuration=5+Math.random()*5+'s';
+      s.style.fontSize=8+Math.random()*10+'px';
+      document.body.appendChild(s);
+    }
+  </script>
+
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+    <div class="orbit">
+      <div class="logo"><img src="logo.jpg" alt="GC Logo"></div>
+
+      <a class="main-og" href="https://t.me/ArjunaFriendsGroupOG" target="_blank">ARJUNA OG MAIN</a>
+
+      <!-- LEFT -->
+      <a class="l1" href="https://join.regainapp.ai/dzq9l49q" target="_blank">OG Regain</a>
+      <a class="l2" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDg5NTg4MQ==" target="_blank">YPT Main</a>
+      <a class="l3" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTE3MTg3MQ==" target="_blank">YPT 1X</a>
+      <a class="l4" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTM2MzgyNQ==" target="_blank">YPT 2X</a>
+
+      <!-- RIGHT -->
+      <a class="r1" href="https://t.me/ArjunaFriendsGroupQuizzer" target="_blank">OG Quizzer</a>
+      <a class="r2" href="https://t.me/AZQuizzes" target="_blank">Collabed Quizzer</a>
+      <a class="r3" href="https://t.me/ArjunaResourceOG" target="_blank">OG Material</a>
+
+      <!-- BOTTOM -->
+      <a class="bottom" href="https://discord.gg/3kRABh7F4R" target="_blank">Discord OG</a>
+    </div>
+
+    <button class="nav next" onclick="goPage(2)">Next →</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <div class="about">
+      Arjuna GC is built for disciplined science students.
+      Everything here is structured to keep productivity,
+      focus and unity at its peak.
+    </div>
+    <button class="nav back" onclick="goPage(1)">← Back</button>
+  </div>
+
+  <div class="credit">EREN~ *</div>
+
+  <script>
+    function goPage(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page'+n).classList.add('active')}
+  </script>
+
+</body>
+</html>
