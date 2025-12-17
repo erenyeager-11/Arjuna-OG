@@ -1,217 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arjuna GC Hub</title>
-
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+body{
+  min-height:100vh;
+  background:#1c1b18;
+  color:#f5efe6;
+  overflow-x:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+.page{display:none;flex-direction:column;align-items:center;justify-content:center;width:100%;padding:10px;}
+.page.active{display:flex;}
 
-  body{
-    min-height:100vh;
-    background: linear-gradient(135deg,#1c1b18,#2a261f,#f5efe6);
-    background-size: 400% 400%;
-    animation:bgMove 20s ease-in-out infinite alternate;
-    color:#f5efe6;
-    overflow-x:hidden;
-  }
+/* Logo */
+.logo{
+  width:120px;height:120px;border-radius:50%;background:#000a;display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+}
+.logo img{width:100%;height:100%;object-fit:cover;}
 
-  @keyframes bgMove{
-    0%{background-position:0% 50%}
-    100%{background-position:100% 50%}
-  }
+/* Buttons */
+.btn{
+  display:block;
+  margin:6px 0;
+  padding:10px 16px;
+  background:#000a;
+  color:#f5efe6;
+  text-decoration:none;
+  border-radius:12px;
+  text-align:center;
+  width:90%;
+  max-width:260px;
+  transition:0.3s;
+}
+.btn:hover{background:#fff2;color:#1c1b18;}
 
-  /* snowflakes */
-  .snow{
-    position:absolute;
-    top:-10px;
-    color:#fff;
-    opacity:.5;
-    animation:fall linear infinite;
-    pointer-events:none;
-  }
+/* Main button */
+.main-og{margin-bottom:20px;font-weight:600;}
 
-  @keyframes fall{
-    from{transform:translateY(-10vh)}
-    to{transform:translateY(110vh)}
-  }
+/* About page */
+.about{
+  background:#0005;
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+  line-height:1.5;
+}
 
-  .page{
-    position:absolute;
-    inset:0;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    padding:20px;
-  }
-  .page.active{display:flex}
+/* Nav buttons */
+.nav{
+  margin-top:15px;
+  padding:8px 16px;
+  border:none;
+  border-radius:12px;
+  background:#000a;
+  color:#f5efe6;
+  cursor:pointer;
+}
 
-  /* ORBIT */
-  .orbit{
-    position:relative;
-    width:90%;
-    max-width:400px;
-    height:400px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  /* LOGO */
-  .logo{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    background:rgba(0,0,0,.6);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    box-shadow:0 0 50px rgba(245,239,230,.4);
-    z-index:5;
-  }
-  .logo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-
-  /* BASE BUTTON */
-  .orbit a{
-    position:absolute;
-    padding:8px 12px;
-    border-radius:12px;
-    background:rgba(0,0,0,.55);
-    backdrop-filter:blur(6px);
-    text-decoration:none;
-    color:#f5efe6;
-    font-size:13px;
-    white-space:nowrap;
-    transition:.3s;
-  }
-  .orbit a:hover{
-    transform:scale(1.08);
-    background:rgba(245,239,230,.18);
-  }
-
-  /* MAIN GC (TOP) */
-  .main-og{
-    top:-28px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:15px;
-    padding:14px 22px;
-    background:linear-gradient(135deg,#f5efe6,#cfc7b8);
-    color:#1c1b18;
-    font-weight:600;
-    box-shadow:0 0 20px rgba(245,239,230,.6);
-  }
-
-  /* LEFT SIDE */
-  .l1{top:15%;left:-30px}
-  .l2{top:35%;left:-50px}
-  .l3{top:55%;left:-50px}
-  .l4{top:75%;left:-30px}
-
-  /* RIGHT SIDE */
-  .r1{top:25%;right:-30px}
-  .r2{top:50%;right:-50px}
-  .r3{top:70%;right:-30px}
-
-  /* BOTTOM */
-  .bottom{
-    bottom:-25px;
-    left:50%;
-    transform:translateX(-50%);
-    background:rgba(88,101,242,.6);
-    padding:10px 16px;
-    border-radius:14px;
-  }
-
-  /* NAV */
-  .nav{
-    position:fixed;
-    padding:10px 16px;
-    border:none;
-    border-radius:12px;
-    background:rgba(0,0,0,.6);
-    color:#f5efe6;
-    cursor:pointer;
-  }
-  .next{bottom:15px;right:15px}
-  .back{bottom:15px;left:15px}
-
-  .about{
-    max-width:520px;
-    text-align:center;
-    line-height:1.6;
-    font-size:16px;
-    padding:22px;
-    background:rgba(0,0,0,.45);
-    border-radius:18px;
-  }
-
-  .credit{
-    position:fixed;
-    bottom:15px;
-    right:15px;
-    opacity:.6;
-    font-size:12px;
-  }
-
-  /* Responsive */
-  @media(max-width:480px){
-    .orbit{width:90%;height:300px}
-    .logo{width:100px;height:100px}
-    .orbit a{font-size:12px;padding:6px 10px}
-    .main-og{font-size:13px;padding:10px 18px}
-    .bottom{padding:8px 12px}
-  }
+/* Snowflakes */
+.snow{
+  position:fixed;
+  top:-10px;
+  color:#fff;
+  opacity:.4;
+  font-size:8px;
+  pointer-events:none;
+  will-change:transform;
+  z-index:1;
+}
 </style>
 </head>
 <body>
 
+<!-- Snowflakes -->
 <script>
-  // Slow snowfall, less elements for mobile-friendly
-  let snowCount = window.innerWidth < 480 ? 15 : 25;
-  for(let i=0;i<snowCount;i++){
-    let s=document.createElement('div');
-    s.className='snow';
-    s.innerHTML='❄';
-    s.style.left=Math.random()*100+'vw';
-    s.style.animationDuration=25+Math.random()*20+'s'; // SLOWER
-    s.style.opacity=0.2+Math.random()*0.5;
-    s.style.fontSize=8+Math.random()*10+'px';
-    s.style.animationDelay=Math.random()*-30+'s';
-    document.body.appendChild(s);
-  }
+let snowCount = window.innerWidth < 480 ? 8 : 15; // very few for mobile
+let snowflakes = [];
+for(let i=0;i<snowCount;i++){
+  let s = document.createElement('div');
+  s.className = 'snow';
+  s.innerHTML = '❄';
+  s.style.left = Math.random()*100 + 'vw';
+  s.style.fontSize = (8+Math.random()*8)+'px';
+  document.body.appendChild(s);
+  snowflakes.push({el:s,y:Math.random()*window.innerHeight,x:Math.random()*window.innerWidth,speed:0.2+Math.random()*0.3});
+}
+
+function animateSnow(){
+  snowflakes.forEach(f=>{
+    f.y += f.speed;
+    if(f.y>window.innerHeight) f.y=-10;
+    f.el.style.transform = `translate(${f.x}px,${f.y}px)`;
+  });
+  requestAnimationFrame(animateSnow);
+}
+animateSnow();
 </script>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
-  <div class="orbit">
-    <div class="logo"><img src="logo.png" alt="GC Logo"></div>
+  <div class="logo"><img src="logo.png" alt="GC Logo"></div>
 
-    <a class="main-og" href="https://t.me/ArjunaFriendsGroupOG" target="_blank">ARJUNA OG MAIN</a>
+  <a class="btn main-og" href="https://t.me/ArjunaFriendsGroupOG" target="_blank">ARJUNA OG MAIN</a>
 
-    <!-- LEFT -->
-    <a class="l1" href="https://join.regainapp.ai/dzq9l49q" target="_blank">OG Regain</a>
-    <a class="l2" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDg5NTg4MQ==" target="_blank">YPT Main</a>
-    <a class="l3" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTE3MTg3MQ==" target="_blank">YPT 1X</a>
-    <a class="l4" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTM2MzgyNQ==" target="_blank">YPT 2X</a>
+  <!-- Left & Right buttons stacked for mobile -->
+  <a class="btn" href="https://join.regainapp.ai/dzq9l49q" target="_blank">OG Regain</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDg5NTg4MQ==" target="_blank">YPT Main</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTE3MTg3MQ==" target="_blank">YPT 1X</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTM2MzgyNQ==" target="_blank">YPT 2X</a>
+  <a class="btn" href="https://t.me/ArjunaFriendsGroupQuizzer" target="_blank">OG Quizzer</a>
+  <a class="btn" href="https://t.me/AZQuizzes" target="_blank">Collabed Quizzer</a>
+  <a class="btn" href="https://t.me/ArjunaResourceOG" target="_blank">OG Material</a>
+  <a class="btn" href="https://discord.gg/3kRABh7F4R" target="_blank">Discord OG</a>
 
-    <!-- RIGHT -->
-    <a class="r1" href="https://t.me/ArjunaFriendsGroupQuizzer" target="_blank">OG Quizzer</a>
-    <a class="r2" href="https://t.me/AZQuizzes" target="_blank">Collabed Quizzer</a>
-    <a class="r3" href="https://t.me/ArjunaResourceOG" target="_blank">OG Material</a>
-
-    <!-- BOTTOM -->
-    <a class="bottom" href="https://discord.gg/3kRABh7F4R" target="_blank">Discord OG</a>
-  </div>
-
-  <button class="nav next" onclick="goPage(2)">Next →</button>
+  <button class="nav" onclick="goPage(2)">Next →</button>
 </div>
 
 <!-- PAGE 2 -->
@@ -220,16 +129,14 @@
     Arjuna GC is built for disciplined science students.<br>
     Everything here is structured to keep productivity, focus, and unity at its peak.
   </div>
-  <button class="nav back" onclick="goPage(1)">← Back</button>
+  <button class="nav" onclick="goPage(1)">← Back</button>
 </div>
 
-<div class="credit">EREN~ *</div>
-
 <script>
-  function goPage(n){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('page'+n).classList.add('active');
-  }
+function goPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+}
 </script>
 
 </body>
