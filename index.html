@@ -17,6 +17,7 @@ body{
   justify-content:center;
   align-items:center;
   flex-direction:column;
+  position:relative;
 }
 @keyframes bgMove{
   0%{background-position:0% 50%}
@@ -98,12 +99,24 @@ body{
   z-index:1;
 }
 
+/* EREN tag */
+.eren-tag{
+  position:absolute;
+  bottom:8px;
+  right:8px;
+  font-size:12px;
+  color:#f5efe6;
+  opacity:0.6;
+  font-weight:600;
+}
+
 /* Responsive */
 @media(max-width:480px){
   .logo{width:100px;height:100px;margin-bottom:15px;}
   .btn{font-size:14px;padding:8px 12px;}
   .main-og{font-size:15px;}
   .about{font-size:15px;padding:16px;}
+  .eren-tag{font-size:10px;}
 }
 </style>
 </head>
@@ -134,6 +147,9 @@ function animateSnow(){
 animateSnow();
 </script>
 
+<!-- EREN tag -->
+<div class="eren-tag">EREN~</div>
+
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
   <div class="logo"><img src="logo.png" alt="GC Logo"></div>
@@ -144,6 +160,8 @@ animateSnow();
   <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDg5NTg4MQ==" target="_blank">YPT Main</a>
   <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTE3MTg3MQ==" target="_blank">YPT 1X</a>
   <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTM2MzgyNQ==" target="_blank">YPT 2X</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTQ0MTg3NA==" target="_blank">YPT 3X</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTc2NzAwOA==" target="_blank">YPT 4X</a>
   <a class="btn" href="https://t.me/ArjunaFriendsGroupQuizzer" target="_blank">OG Quizzer</a>
   <a class="btn" href="https://t.me/AZQuizzes" target="_blank">Collabed Quizzer</a>
   <a class="btn" href="https://t.me/ArjunaResourceOG" target="_blank">OG Material</a>
