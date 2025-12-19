@@ -16,53 +16,41 @@
 body{
   min-height:100vh;
   background:
-    radial-gradient(circle at top, rgba(255,215,160,0.12), transparent 40%),
+    radial-gradient(circle at top, rgba(255,215,160,0.10), transparent 45%),
     linear-gradient(135deg,#0c0c0c,#1a1610,#0c0c0c);
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:16px;
+  padding:18px;
   color:#f5efe6;
 }
 
-/* MAIN GLASS CONTAINER */
-.container{
+/* GLASS WRAPPER */
+.wrapper{
   width:100%;
-  max-width:420px;
-  padding:22px 18px;
-  border-radius:28px;
-  text-align:center;
-
-  background:rgba(255,255,255,0.06);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
+  max-width:430px;
+  padding:22px 18px 26px;
+  border-radius:26px;
+  background:rgba(255,255,255,0.055);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow:
-    0 20px 55px rgba(0,0,0,0.65),
-    inset 0 0 0 1px rgba(255,215,160,0.12);
-}
-
-/* PC VIEW */
-@media(min-width:900px){
-  .container{
-    max-width:540px;
-    padding:28px 26px;
-  }
+    0 18px 45px rgba(0,0,0,0.65),
+    inset 0 0 0 1px rgba(255,215,160,0.10);
 }
 
 /* LOGO */
 .logo{
-  width:115px;
-  height:115px;
-  margin:0 auto 18px;
+  width:105px;
+  height:105px;
+  margin:0 auto 14px;
   border-radius:50%;
   background:rgba(0,0,0,0.45);
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 0 32px rgba(255,200,120,0.35);
+  box-shadow:0 0 26px rgba(255,200,120,0.30);
 }
-
 .logo img{
   width:100%;
   height:100%;
@@ -70,137 +58,110 @@ body{
   object-fit:cover;
 }
 
-/* TEXT */
-.tagline{
-  font-size:12px;
-  letter-spacing:2px;
-  color:#e3c98f;
+/* TITLE */
+.title{
+  text-align:center;
+  font-size:22px;
+  font-weight:600;
   margin-bottom:6px;
 }
-
-h1{
-  font-size:26px;
-  margin-bottom:10px;
-}
-
-.subtext{
-  font-size:14px;
-  line-height:1.5;
-  color:#d8d1c4;
-  margin-bottom:22px;
-}
-
-/* SECTIONS */
-.section{
+.subtitle{
+  text-align:center;
+  font-size:13px;
+  color:#d6c7a5;
   margin-bottom:18px;
 }
 
-.section-title{
-  font-size:12px;
-  letter-spacing:1.6px;
-  color:#e3c98f;
-  margin-bottom:10px;
+/* SECTION LABEL */
+.label{
+  font-size:11px;
+  letter-spacing:1.5px;
+  color:#e0c58f;
+  margin:16px 0 8px;
+  text-align:center;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-/* GLASS BUTTONS */
-.card{
-  padding:14px 10px;
-  border-radius:18px;
+/* STACK BUTTONS */
+.btn{
+  display:block;
   text-decoration:none;
   color:#f5efe6;
+  padding:14px 16px;
+  border-radius:18px;
+  margin-bottom:10px;
   font-size:14px;
 
   background:rgba(255,255,255,0.07);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
 
   box-shadow: inset 0 0 0 1px rgba(255,215,160,0.08);
-  transition:0.3s;
+  transition:0.25s;
 }
 
-.card:hover{
-  transform:translateY(-3px) scale(1.03);
+.btn:hover{
+  transform:translateY(-2px);
   box-shadow:
-    0 0 22px rgba(255,200,120,0.30),
-    inset 0 0 0 1px rgba(255,215,160,0.20);
+    0 0 18px rgba(255,200,120,0.28),
+    inset 0 0 0 1px rgba(255,215,160,0.18);
 }
 
-/* FULL WIDTH */
-.full{
-  grid-column:1/3;
+/* PRIMARY */
+.btn.main{
   font-weight:600;
+  text-align:center;
 }
 
 /* FOOTER */
 .footer{
-  margin-top:18px;
+  text-align:center;
+  margin-top:16px;
   font-size:11px;
   opacity:0.55;
-  letter-spacing:0.5px;
+  letter-spacing:0.4px;
+}
+
+/* PC */
+@media(min-width:900px){
+  .wrapper{max-width:520px;}
 }
 
 /* SMALL PHONES */
 @media(max-width:360px){
-  h1{font-size:22px;}
-  .card{font-size:13px;}
+  .title{font-size:20px;}
+  .btn{font-size:13px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
   <div class="logo">
     <img src="logo.png" alt="Arjuna GC">
   </div>
 
-  <div class="tagline">FOCUSED PREP COMMUNITY</div>
-  <h1>Arjuna GC Network</h1>
+  <div class="title">Arjuna GC</div>
+  <div class="subtitle">Discipline • Focus • Consistency</div>
 
-  <div class="subtext">
-    Quizzes, doubts, resources & discipline —  
-    one clean ecosystem built for serious science students.
-  </div>
+  <div class="label">MAIN SPACE</div>
+  <a class="btn main" href="https://t.me/ArjunaFriendsGroupOG" target="_blank">
+    ARJUNA OG MAIN
+  </a>
 
-  <!-- CORE -->
-  <div class="section">
-    <div class="section-title">CORE SPACES</div>
-    <div class="grid">
-      <a class="card full" href="https://t.me/ArjunaFriendsGroupOG" target="_blank">ARJUNA OG MAIN</a>
-      <a class="card" href="https://join.regainapp.ai/dzq9l49q" target="_blank">Regain</a>
-      <a class="card" href="https://discord.gg/3kRABh7F4R" target="_blank">Discord OG</a>
-    </div>
-  </div>
+  <div class="label">STUDY TRACKING</div>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDg5NTg4MQ==" target="_blank">YPT Main</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTE3MTg3MQ==" target="_blank">YPT 1X</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTM2MzgyNQ==" target="_blank">YPT 2X</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTQ0MTg3NA==" target="_blank">YPT 3X</a>
+  <a class="btn" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTc2NzAwOA==" target="_blank">YPT 4X</a>
 
-  <!-- STUDY -->
-  <div class="section">
-    <div class="section-title">STUDY SYSTEM</div>
-    <div class="grid">
-      <a class="card" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDg5NTg4MQ==" target="_blank">YPT Main</a>
-      <a class="card" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTE3MTg3MQ==" target="_blank">YPT 1X</a>
-      <a class="card" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTM2MzgyNQ==" target="_blank">YPT 2X</a>
-      <a class="card" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTQ0MTg3NA==" target="_blank">YPT 3X</a>
-    </div>
-  </div>
+  <div class="label">PRACTICE & RESOURCES</div>
+  <a class="btn" href="https://t.me/ArjunaFriendsGroupQuizzer" target="_blank">OG Quizzer</a>
+  <a class="btn" href="https://t.me/AZQuizzes" target="_blank">Collab Quizzer</a>
+  <a class="btn" href="https://t.me/ArjunaResourceOG" target="_blank">OG Study Materials</a>
+  <a class="btn" href="https://discord.gg/3kRABh7F4R" target="_blank">Discord OG</a>
 
-  <!-- GROWTH -->
-  <div class="section">
-    <div class="section-title">GROWTH & PRACTICE</div>
-    <div class="grid">
-      <a class="card" href="https://t.me/ArjunaFriendsGroupQuizzer" target="_blank">OG Quizzer</a>
-      <a class="card" href="https://t.me/AZQuizzes" target="_blank">Collab Quizzer</a>
-      <a class="card full" href="https://t.me/ArjunaResourceOG" target="_blank">OG Study Materials</a>
-    </div>
-  </div>
-
-  <!-- MADE BY -->
   <div class="footer">
     made by ΞЯΞИ | حمّاد𒉭
   </div>
